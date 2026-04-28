@@ -1,26 +1,19 @@
 import React from 'react';
 
 
-const Save = ({ data, handleSave }) => {
 
-  const fnSave = () => {
-   
-    if (!data) return; 
-    
-
-    handleSave(data); 
-    
-    console.log("บันทึกข้อมูลเรียบร้อย:", data);
-  };
-
+const SaveButton = ({ onSave }) => {
   return (
-    <div className="save-container">
-      {/* หน้าตาปุ่มตามที่เพื่อนออกแบบไว้ */}
-      <button className="btn-save" onClick={fnSave}>
-        SAVE
+    <div className="mt-8 w-full flex justify-center">
+      <button
+        onClick={onSave}
+        className="bg-[#374151] text-white px-12 py-2 rounded-full font-bold 
+                   shadow-lg hover:bg-black active:scale-95 transition-all duration-200"
+      >
+        บันทึก
       </button>
     </div>
   );
 };
 
-export default Save; // เพื่อให้เพื่อน Import ไปใช้ได้
+export default SaveButton;
