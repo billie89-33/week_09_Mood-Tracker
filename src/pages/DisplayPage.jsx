@@ -1,20 +1,20 @@
-import React, { useState, useEffect } from 'react';
-import HistoryCard from '../components/History-card';
+import React, { useState, useEffect } from "react";
+import HistoryCard from "../components/History-card";
 
 const DisplayPage = () => {
   const [items, setItems] = useState([]);
 
   // ดึงข้อมูลเมื่อเปิดหน้า
   useEffect(() => {
-    const data = JSON.parse(localStorage.getItem('myMoods') || '[]');
+    const data = JSON.parse(localStorage.getItem("myMoods") || "[]");
     setItems(data);
   }, []);
 
   // ฟังก์ชันลบรายการ
   const handleDelete = (id) => {
-    const updatedItems = items.filter(item => item.id !== id);
+    const updatedItems = items.filter((item) => item.id !== id);
     setItems(updatedItems);
-    localStorage.setItem('myMoods', JSON.stringify(updatedItems));
+    localStorage.setItem("myMoods", JSON.stringify(updatedItems));
   };
 
   return (
@@ -26,10 +26,10 @@ const DisplayPage = () => {
       <div className="space-y-4">
         {/* วนลูปโชว์ 8 ช่องตามดีไซน์ต้นฉบับของคุณ */}
         {[...Array(8)].map((_, i) => (
-          <HistoryCard 
-            key={i} 
-            index={i} 
-            entry={items[i]} 
+          <HistoryCard
+            key={i}
+            index={i}
+            entry={items[i]}
             onDelete={handleDelete}
           />
         ))}
@@ -37,10 +37,10 @@ const DisplayPage = () => {
 
       {/* ปุ่มล้างข้อมูลทั้งหมด (ถ้ามีข้อมูล) */}
       {items.length > 0 && (
-        <button 
+        <button
           onClick={() => {
-            if(window.confirm("ลบประวัติทั้งหมดใช่ไหม?")) {
-              localStorage.removeItem('myMoods');
+            if (window.confirm("ลบประวัติทั้งหมดใช่ไหม?")) {
+              localStorage.removeItem("myMoods");
               setItems([]);
             }
           }}
