@@ -10,7 +10,7 @@ const RootLayout = () => {
       </main>
 
       <footer className="text-center py-4 text-sm text-text-muted font-body">
-        <span className="opacity-60"> MoodBuddy </span>
+        <span className="opacity-60"> Moody </span>
       </footer>
     </div>
   );
