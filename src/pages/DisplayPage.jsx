@@ -18,12 +18,26 @@ const DisplayPage = () => {
   };
 
   return (
-    <div className="bg-gray-200 p-6 rounded-[40px] w-full max-w-sm shadow-xl min-h-[600px]">
-      <h2 className="text-center font-bold text-gray-700 mb-6 text-lg tracking-widest uppercase">
-        History
-      </h2>
+    <div className="glass-card p-6 md:p-8 w-full max-w-md min-h-[600px] animate-fade-in-up">
+      {/* Header */}
+      <div className="flex flex-col items-center mb-6">
+        <div className="flex items-center gap-2 mb-1">
+          <div className="w-1.5 h-1.5 rounded-full bg-accent-500 ai-badge-glow" />
+          <span className="text-[11px] text-accent-500 font-bold uppercase tracking-[0.2em] font-display">
+            Mood Journal
+          </span>
+        </div>
+        <h2 className="text-xl font-extrabold text-text-primary font-display tracking-tight">
+          📖 Your History
+        </h2>
+        {items.length > 0 && (
+          <p className="text-xs text-text-muted mt-1">
+            {items.length} mood{items.length !== 1 ? 's' : ''} recorded
+          </p>
+        )}
+      </div>
 
-      <div className="space-y-4">
+      <div className="space-y-3">
         {/* วนลูปโชว์ 8 ช่องตามดีไซน์ต้นฉบับของคุณ */}
         {[...Array(8)].map((_, i) => (
           <HistoryCard
@@ -44,9 +58,9 @@ const DisplayPage = () => {
               setItems([]);
             }
           }}
-          className="mt-8 w-full text-[10px] text-gray-400 hover:text-red-400 transition-colors uppercase tracking-tighter"
+          className="mt-8 w-full text-xs text-text-muted hover:text-rose-500 transition-all duration-300 uppercase tracking-wider font-semibold cursor-pointer hover:tracking-widest"
         >
-          Clear All History
+          🗑️ Clear All History
         </button>
       )}
     </div>
