@@ -1,5 +1,6 @@
 import React from 'react';
 import "./DisplayPage.css"
+import HistoryCard from '../components/History-card';
 
 const DisplayPage = () => {
   const mockData = [1, 2, 3];
@@ -14,6 +15,8 @@ const DisplayPage = () => {
         <div className="display-title">
           <h2>History</h2>
         </div>
+         
+       <HistoryCard/>
 
         <div className="history-list">
           {mockData.map((item) => (
